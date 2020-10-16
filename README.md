@@ -1,4 +1,4 @@
-# webv1
+# Movie App - Mastering Vuejs
 
 ## Project setup
 ```
