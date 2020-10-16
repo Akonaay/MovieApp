@@ -1,5 +1,4 @@
-# MovieApp
-# Movie Platform - Mastering Vuejs
+# Movie App - Mastering Vuejs
 
 ## Project setup
 ```
