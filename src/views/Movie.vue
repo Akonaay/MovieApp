@@ -24,18 +24,22 @@
           <div class="mt-4">
             <div class="d-flex justify-content-start">
               <div>
-                <span>
-                  <i class="fa fa-heart text-danger"></i>
+                <span class="mr-3 ml-1">
+                  <i class="fa fa-heart text-warning"></i>
                 </span>
-                <span class="ml-5">{{ movie.like_count }}</span>
+                <span class="ml-5" style="font-weight: 700">{{
+                  movie.like_count
+                }}</span>
               </div>
             </div>
             <div class="d-flex justify-content-start">
               <div>
                 <span>
-                  <i class="fa fa-imdb text-danger"></i>
+                  <i class="fa fa-imdb text-warning fa-2x"></i>
                 </span>
-                <span class="ml-5">{{ movie.rating }}</span>
+                <span class="ml-5" style="font-weight: 700">{{
+                  movie.rating
+                }}</span>
               </div>
             </div>
           </div>
