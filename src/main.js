@@ -2,11 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import 'bulma/css/bulma.css'
-import './../public/css/bootstrap.css'
-
-// import './../public/js/jquery.min.js'
-// import 'bootstrap/dist/js/bootstrap'
+// import 'bulma/css/bulma.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
 
 Vue.config.productionTip = false
 
