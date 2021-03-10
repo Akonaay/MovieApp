@@ -36,11 +36,11 @@
               :key="seed.id"
               class="btn btn-outline-dark btn-sm mr-1"
             >
-              <router-link
-                :to="seed.url"
+              <a
+                href="#!"
                 target="_blank"
                 style="text-decoration: none; font-weight: 600;"
-                >{{ seed.quality }}</router-link
+                >{{ seed.quality }}</a
               >
             </button>
           </div>
