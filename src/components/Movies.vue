@@ -36,12 +36,9 @@
               :key="seed.id"
               class="btn btn-outline-dark btn-sm mr-1"
             >
-              <a
-                href="#!"
-                target="_blank"
-                style="text-decoration: none; font-weight: 600;"
-                >{{ seed.quality }}</a
-              >
+              <a href="#!" style="text-decoration: none; font-weight: 600;">{{
+                seed.quality
+              }}</a>
             </button>
           </div>
         </div>
