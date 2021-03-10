@@ -21,8 +21,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="/">Home</a>
+              <a href="/" style="text-decoration: none;">Home</a>
             </li>
+            <!-- <li class="nav-item">
+              <a href="/hellos">Hellos</a>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -43,6 +46,10 @@
 
 <style scoped>
   .t-d-none {
+    text-decoration: none;
+  }
+
+  a {
     text-decoration: none;
   }
 </style>

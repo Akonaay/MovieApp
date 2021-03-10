@@ -7,25 +7,28 @@
     </div>
     <div class="mt-3" v-if="movie">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <img
             class="rounded mx-auto border border-5"
             :src="movie.medium_cover_image"
             alt=""
           />
+          <a href="#!" class="btn btn-warning mt-2" style="width: 230px">
+            <h4>Download</h4>
+          </a>
         </div>
-        <div class="col-md-5 text-black mt-sm-3">
+        <div class="col-md-4 text-black mt-sm-3">
           <div style="font-weight: 500" class="text-info">
             <h3>{{ movie.title }}</h3>
             <p>{{ movie.year }}</p>
-            <p>{{ movie.genres[0] }} / {{ movie.genres[1] }}</p>
+            <p>{{ filterGenres }}</p>
           </div>
 
           <div class="mt-4">
             <div class="d-flex justify-content-start">
               <div>
                 <span class="mr-3 ml-1">
-                  <i class="fa fa-heart text-warning"></i>
+                  <i class="fa fa-heart text-warning fa-2x"></i>
                 </span>
                 <span class="ml-5" style="font-weight: 700">{{
                   movie.like_count
@@ -35,7 +38,7 @@
             <div class="d-flex justify-content-start">
               <div>
                 <span>
-                  <i class="fa fa-imdb text-warning fa-2x"></i>
+                  <i class="fa fa-imdb text-warning fa-3x"></i>
                 </span>
                 <span class="ml-5" style="font-weight: 700">{{
                   movie.rating
@@ -44,11 +47,25 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3" id="similar-movies">
-          <h3>Similar Movies</h3>
-          <div class="row text-md-center">
-            <div v-for="movie in movies" :key="movie.id" class="col-md-4 box">
-              <h3>{{ movie.title }}</h3>
+        <div class="col-md-5" id="similar-movies">
+          <div class="row">
+            <div
+              class="col-md-5"
+              v-for="suggestion in suggestions"
+              :key="suggestion.id"
+              style="margin-right: -30px;margin-left: -5px; height: 180px !important"
+            >
+              <router-link
+                style="text-decoration: none"
+                :to="{ name: 'MovieDetails', params: { id: suggestion.id } }"
+              >
+                <img
+                  class="rounded mx-auto border border-5 mb-2"
+                  :src="suggestion.medium_cover_image"
+                  alt=""
+                  style="width: 120px; border: 3px solid !important;"
+                />
+              </router-link>
             </div>
           </div>
         </div>
@@ -57,11 +74,14 @@
 
     <div class="mt-3">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 text-info">
           <h3>Synopsis</h3>
-          <p>{{ movie.description_full }}</p>
+          <p class="text-justify text-black-50">{{ movie.description_full }}</p>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4 text-info">
+          <h3>Reviews</h3>
+          <p>There is no reviews at the moment</p>
+        </div>
       </div>
     </div>
   </div>
@@ -74,17 +94,23 @@
       return {
         movie: null,
         movies: [],
+        suggestions: [],
       };
     },
-    mounted() {
+    computed: {
+      filterGenres() {
+        return this.movie.genres;
+      },
+    },
+    created() {
       fetch(" https://yts.mx/api/v2/movie_details.json?movie_id=" + this.id)
         .then((res) => res.json())
         .then((data) => (this.movie = data.data.movie))
         .catch((err) => console.log(err.message));
 
-      fetch(" https://yts.mx/api/v2/list_movies.json")
+      fetch(" https://yts.mx/api/v2/movie_suggestions.json?movie_id=" + this.id)
         .then((res) => res.json())
-        .then((data) => (this.movies = data.data.movie))
+        .then((data) => (this.suggestions = data.data.movies))
         .catch((err) => console.log(err.message));
     },
   };
