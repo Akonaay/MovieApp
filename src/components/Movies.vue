@@ -13,7 +13,8 @@
           />
         </div>
       </div>
-      <div class="row" id="movies" v-if="movies.length > 0">
+
+      <div class="row">
         <div v-for="movie in filterMovies" :key="movie.id" class="col-sm box">
           <router-link
             style="text-decoration: none"
@@ -27,7 +28,9 @@
               />
             </div>
 
-            <p style="font-weight: 700">{{ movie.title }}</p>
+            <p style="font-weight: 700">
+              {{ movie.title }}
+            </p>
           </router-link>
           <p style="font-weight: 200">{{ movie.year }}</p>
           <div class="mb-2">
@@ -43,9 +46,6 @@
           </div>
         </div>
       </div>
-      <div v-else>
-        <h4 class="text-center">Loading...</h4>
-      </div>
     </div>
   </div>
 </template>
@@ -57,6 +57,7 @@
       return {
         movies: [],
         search: "",
+        collection: [],
       };
     },
     computed: {
@@ -66,8 +67,9 @@
         });
       },
     },
+    methods: {},
     created() {
-      fetch(" https://yts.mx/api/v2/list_movies.json?&limit=50")
+      fetch(" https://yts.mx/api/v2/list_movies.json?limit=48")
         .then((res) => res.json())
         .then((data) => (this.movies = data.data.movies))
         .catch((err) => console.log(err.message));
