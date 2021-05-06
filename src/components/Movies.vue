@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="container">
     <div class="movies-list mt-3">
       <div class="mt-3 mb-3 text-center">
         <h3 class="text-warning">Popular Movies</h3>
@@ -10,12 +10,31 @@
             v-model="search"
             class="form-control"
             placeholder="Search for movie"
+            @change="searchMovie(search)"
           />
         </div>
       </div>
-
+      <div class="">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item" :class="[{ disabled: page < 0 }]">
+              <a class="page-link" href="#" @click="fetchMovies(page--)"
+                >Previous</a
+              >
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Page {{ page }}</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" @click="fetchMovies(page++)"
+                >Next</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div class="row">
-        <div v-for="movie in filterMovies" :key="movie.id" class="col-sm box">
+        <div v-for="movie in movies" :key="movie.id" class="col-sm box">
           <router-link
             style="text-decoration: none"
             :to="{ name: 'MovieDetails', params: { id: movie.id } }"
@@ -33,7 +52,7 @@
             </p>
           </router-link>
           <p style="font-weight: 200">{{ movie.year }}</p>
-          <div class="mb-2">
+          <!-- <div class="mb-2">
             <button
               v-for="seed in movie.torrents"
               :key="seed.id"
@@ -43,7 +62,7 @@
                 seed.quality
               }}</a>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -51,37 +70,45 @@
 </template>
 
 <script>
-  export default {
-    name: "Movies",
-    data() {
-      return {
-        movies: [],
-        search: "",
-        collection: [],
-      };
+import axios from "axios";
+export default {
+  name: "Movies",
+  data() {
+    return {
+      movies: [],
+      search: "",
+      page: 1,
+    };
+  },
+
+  methods: {
+    async fetchMovies(page) {
+      page = this.page;
+      let page_url = `https://yts.mx/api/v2/list_movies.json?sort=seeds&limit=24&page=${page}`;
+      await axios.get(page_url).then((res) => {
+        this.movies = res.data.data.movies;
+      });
     },
-    computed: {
-      filterMovies() {
-        return this.movies.filter((movie) => {
-          return movie.title.toLowerCase().includes(this.search);
-        });
-      },
+
+    async searchMovie(title) {
+      title = this.search;
+      let page_url = `https://yts.mx/api/v2/list_movies.json?query_term=${title}`;
+      await axios.get(page_url).then((res) => {
+        this.movies = res.data.data.movies;
+      });
     },
-    methods: {},
-    created() {
-      fetch(" https://yts.mx/api/v2/list_movies.json?limit=48")
-        .then((res) => res.json())
-        .then((data) => (this.movies = data.data.movies))
-        .catch((err) => console.log(err.message));
-    },
-  };
+  },
+  created() {
+    this.fetchMovies();
+  },
+};
 </script>
 
 <style scoped>
-  @media (max-width: 571px) {
-    .box {
-      justify-content: center;
-      text-align: center;
-    }
+@media (max-width: 571px) {
+  .box {
+    justify-content: center;
+    text-align: center;
   }
+}
 </style>
