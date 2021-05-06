@@ -12,35 +12,36 @@
             class="rounded mx-auto border border-5"
             :src="movie.medium_cover_image"
             alt=""
+            style=""
           />
           <a href="#!" class="btn btn-warning mt-2" style="width: 230px">
             <h4>Download</h4>
           </a>
         </div>
-        <div class="col-md-4 text-black mt-sm-3">
+        <div class="col-md-4 text-black ">
           <div style="font-weight: 500" class="text-info">
-            <h3>{{ movie.title }}</h3>
+            <h3 style="font-weight: 600">{{ movie.title }}</h3>
             <p>{{ movie.year }}</p>
             <p>{{ filterGenres }}</p>
           </div>
 
           <div class="mt-4">
-            <div class="d-flex justify-content-start">
+            <!-- <div class="d-flex justify-content-between">
               <div>
                 <span class="mr-3 ml-1">
-                  <i class="fa fa-heart text-warning fa-2x"></i>
+                  <i class="fas fa-heart text-warning fa-1x"></i>
                 </span>
-                <span class="ml-5" style="font-weight: 700">{{
+                <span class="ml-5" style="font-weight: 600">{{
                   movie.like_count
                 }}</span>
               </div>
-            </div>
-            <div class="d-flex justify-content-start">
+            </div> -->
+            <div class="d-flex justify-content-between">
               <div>
                 <span>
-                  <i class="fa fa-imdb text-warning fa-3x"></i>
+                  <i class="fab fa-imdb text-warning fa-1x"></i>
                 </span>
-                <span class="ml-5" style="font-weight: 700">{{
+                <span class="ml-5" style="font-weight: 600">{{
                   movie.rating
                 }}</span>
               </div>
@@ -88,38 +89,38 @@
 </template>
 
 <script>
-  export default {
-    props: ["id"],
-    data() {
-      return {
-        movie: null,
-        movies: [],
-        suggestions: [],
-      };
+export default {
+  props: ["id"],
+  data() {
+    return {
+      movie: null,
+      movies: [],
+      suggestions: [],
+    };
+  },
+  computed: {
+    filterGenres() {
+      return this.movie.genres;
     },
-    computed: {
-      filterGenres() {
-        return this.movie.genres;
-      },
-    },
-    created() {
-      fetch(" https://yts.mx/api/v2/movie_details.json?movie_id=" + this.id)
-        .then((res) => res.json())
-        .then((data) => (this.movie = data.data.movie))
-        .catch((err) => console.log(err.message));
+  },
+  created() {
+    fetch(" https://yts.mx/api/v2/movie_details.json?movie_id=" + this.id)
+      .then((res) => res.json())
+      .then((data) => (this.movie = data.data.movie))
+      .catch((err) => console.log(err.message));
 
-      fetch(" https://yts.mx/api/v2/movie_suggestions.json?movie_id=" + this.id)
-        .then((res) => res.json())
-        .then((data) => (this.suggestions = data.data.movies))
-        .catch((err) => console.log(err.message));
-    },
-  };
+    fetch(" https://yts.mx/api/v2/movie_suggestions.json?movie_id=" + this.id)
+      .then((res) => res.json())
+      .then((data) => (this.suggestions = data.data.movies))
+      .catch((err) => console.log(err.message));
+  },
+};
 </script>
 
 <style>
-  @media (max-width: 1035px) {
-    #similar-movies {
-      display: none;
-    }
+@media (max-width: 1035px) {
+  #similar-movies {
+    display: none;
   }
+}
 </style>
