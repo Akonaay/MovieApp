@@ -21,11 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="/" style="text-decoration: none;">Home</a>
+              <router-link to="/" style="text-decoration: none;"
+                >Home</router-link
+              >
             </li>
-            <!-- <li class="nav-item">
-              <a href="/hellos">Hellos</a>
-            </li> -->
           </ul>
         </div>
       </div>
@@ -35,21 +34,21 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        showNav: false,
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      showNav: false,
+    };
+  },
+};
 </script>
 
 <style scoped>
-  .t-d-none {
-    text-decoration: none;
-  }
+.t-d-none {
+  text-decoration: none;
+}
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 </style>
