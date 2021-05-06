@@ -5,7 +5,7 @@
         <h3 class="text-dark" style="font-weight: 800; font-size: 30px">
           Cinemax Pro Movies
         </h3>
-        <p style="font-weight: 400; font-size: 20px; margin-top: 20px">
+        <p style="font-weight: 200; font-size: 18px; margin-top: 10px">
           Welcome to Cinemax Pro here you can browse, review movies which a
           currently trending with high quality
         </p>
