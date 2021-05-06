@@ -2,7 +2,13 @@
   <div class="container">
     <div class="movies-list mt-3">
       <div class="mt-3 mb-3 text-center">
-        <h3 class="text-warning">Popular Movies</h3>
+        <h3 class="text-dark" style="font-weight: 800; font-size: 30px">
+          Cinemax Pro Movies
+        </h3>
+        <p style="font-weight: 400; font-size: 20px; margin-top: 20px">
+          Welcome to Cinemax Pro here you can browse, review movies which a
+          currently trending with high quality
+        </p>
         <hr class="my-4" />
         <div class="d-flex justify-content-center">
           <input

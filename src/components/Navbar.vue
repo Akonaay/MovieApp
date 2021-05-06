@@ -4,7 +4,7 @@
       <div class="container" style="font-weight: bolder">
         <a class="navbar-brand" href="/"
           ><img src="../assets/app.svg" width="23" />
-          <span class="m-2">Showz</span></a
+          <span class="m-2">Cinemax Pro</span></a
         >
         <button
           class="navbar-toggler"
@@ -21,8 +21,31 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <router-link to="/" style="text-decoration: none;"
+              <router-link
+                to="/"
+                style="text-decoration: none; color: white; font-weight: 700"
                 >Home</router-link
+              >
+            </li>
+            <li class="nav-item pl-lg-2">
+              <a
+                style="text-decoration: none; color: white; font-weight: 700"
+                href="#!"
+                >Browse</a
+              >
+            </li>
+            <li class="nav-item pl-lg-2">
+              <a
+                style="text-decoration: none; color: white; font-weight: 700"
+                href="#!"
+                >Trending</a
+              >
+            </li>
+            <li class="nav-item pl-lg-2">
+              <a
+                style="text-decoration: none; color: white; font-weight: 700"
+                href="#!"
+                >4K</a
               >
             </li>
           </ul>
