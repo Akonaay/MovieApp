@@ -82,7 +82,7 @@
             </div>
             <div class="columns copy-right col-lg-6">
               <p>
-                © 2021 Cinemax Pro. All rights reserved. Design by
+                © 2021 Cinemax Pro. All rights reserved. Developed by
                 <a href="https://ambrosedev.netlify.app/" target="_blank">
                   TSDC</a
                 >

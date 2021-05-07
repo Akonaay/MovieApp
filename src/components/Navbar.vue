@@ -2,10 +2,11 @@
   <div class="mb-3">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container" style="font-weight: bolder">
-        <a class="navbar-brand" href="/"
-          ><img src="../assets/app.svg" width="23" />
-          <span class="m-2">Cinemax Pro</span></a
-        >
+        <router-link to="/" class="navbar-brand">
+          <img src="../assets/app.svg" width="23" />
+          <span class="m-2">Cinemax Pro</span>
+        </router-link>
+
         <button
           class="navbar-toggler"
           type="button"

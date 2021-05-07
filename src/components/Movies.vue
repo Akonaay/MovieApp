@@ -19,27 +19,100 @@
             @change="searchMovie(search)"
           />
         </div>
+
+        <!-- Filter -->
+        <div class="row mt-3">
+          <div class="col-md-3">
+            <h6 class="text-left" style="font-weight: 600">Genre</h6>
+            <select
+              class="form-control form-control-sm"
+              style="border-width: 2px;padding-top: 3px; padding-bottom: 3px;"
+            >
+              <option disabled selected>All</option>
+              <option>Action</option>
+              <option>Adventure</option>
+              <option>Animation</option>
+              <option>Biography</option>
+              <option>Comedy</option>
+              <option>Crime</option>
+              <option>Documentary</option>
+              <option>Drama</option>
+              <option>Family</option>
+              <option>Fantasy</option>
+            </select>
+          </div>
+          <div class="col-md-3 mt-2">
+            <h6 class="text-left" style="font-weight: 600">Rating</h6>
+            <select
+              class="form-control form-control-sm"
+              style="border-width: 2px;padding-top: 3px; padding-bottom: 3px;"
+            >
+              <option disabled selected>All</option>
+              <option>9+</option>
+              <option>8+</option>
+              <option>7+</option>
+              <option>6+</option>
+              <option>5+</option>
+              <option>4+</option>
+              <option>3+</option>
+              <option>2+</option>
+              <option>1+</option>
+            </select>
+          </div>
+          <div class="col-md-3 mt-2">
+            <h6 class="text-left" style="font-weight: 600">Year</h6>
+            <select
+              class="form-control form-control-sm"
+              style="border-width: 2px;padding-top: 3px; padding-bottom: 3px;"
+            >
+              <option disabled selected>All</option>
+              <option>2021</option>
+              <option>2020</option>
+              <option>2019</option>
+              <option>2015-2018</option>
+              <option>2010-2014</option>
+              <option>2000-2009</option>
+              <option>1990-1999</option>
+              <option>1980-1989</option>
+            </select>
+          </div>
+          <div class="col-md-3 mt-2">
+            <h6 class="text-left" style="font-weight: 600">Order By</h6>
+            <select
+              class="form-control form-control-sm"
+              style="border-width: 2px;padding-top: 3px; padding-bottom: 3px;"
+            >
+              <option disabled selected>Latest</option>
+              <option>Oldest</option>
+              <option>Featured</option>
+              <option>Seeds</option>
+              <option>Peers</option>
+              <option>Year</option>
+              <option>Rating</option>
+              <option>Likes</option>
+              <option>Downloads</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="">
+      <!-- Pagination Top -->
+      <div class="text-center">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
-            <li class="page-item" :class="[{ disabled: page < 0 }]">
-              <a class="page-link" href="#" @click="fetchMovies(page--)"
-                >Previous</a
-              >
+            <li class="page-item w-762" :class="[{ disabled: page < 0 }]">
+              <a class="page-link" @click="fetchMovies(page--)">Previous</a>
             </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Page {{ page }}</a>
+            <li class="page-item disabled w-762">
+              <a class="page-link">Page {{ page }}</a>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#" @click="fetchMovies(page++)"
-                >Next</a
-              >
+            <li class="page-item w-762">
+              <a class="page-link" @click="fetchMovies(page++)">Next</a>
             </li>
           </ul>
         </nav>
       </div>
-      <div class="row">
+      <!-- Movies list -->
+      <div class="row w-765">
         <div v-for="movie in movies" :key="movie.id" class="col-sm box">
           <router-link
             style="text-decoration: none"
@@ -70,6 +143,22 @@
             </button>
           </div> -->
         </div>
+      </div>
+      <!-- Pagination Bottom -->
+      <div class="mt-3 mb-3">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item w-762" :class="[{ disabled: page < 0 }]">
+              <a class="page-link" @click="fetchMovies(page--)">Previous</a>
+            </li>
+            <li class="page-item disabled w-762">
+              <a class="page-link">Page {{ page }}</a>
+            </li>
+            <li class="page-item w-762">
+              <a class="page-link" @click="fetchMovies(page++)">Next</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -115,6 +204,19 @@ export default {
   .box {
     justify-content: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 765px) {
+  .w-765 {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 762px) {
+  .w-762 {
+    width: 33.3%;
   }
 }
 </style>

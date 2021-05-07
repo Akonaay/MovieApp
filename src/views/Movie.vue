@@ -7,22 +7,22 @@
     </div>
     <div class="mt-3" v-if="movie">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-6">
           <img
             class="rounded mx-auto border border-5"
             :src="movie.medium_cover_image"
             alt=""
             style=""
           />
-          <a href="#!" class="btn btn-warning mt-2" style="width: 230px">
-            <h4>Download</h4>
-          </a>
         </div>
-        <div class="col-md-4 text-black ">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
           <div style="font-weight: 500" class="text-info">
-            <h3 style="font-weight: 600">{{ movie.title }}</h3>
+            <h3 style="font-weight: 600" class="mt-567">{{ movie.title }}</h3>
             <p>{{ movie.year }}</p>
             <p>{{ filterGenres }}</p>
+            <a href="#!" class="btn btn-warning mt-2" style="width: 230px">
+              <h4>Download</h4>
+            </a>
           </div>
 
           <div class="mt-4">
@@ -39,7 +39,7 @@
             <div class="d-flex justify-content-between">
               <div>
                 <span>
-                  <i class="fab fa-imdb text-warning fa-1x"></i>
+                  <i class="fab fa-imdb text-warning fa-2x"></i>
                 </span>
                 <span class="ml-5" style="font-weight: 600">{{
                   movie.rating
@@ -48,7 +48,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5" id="similar-movies">
+        <div class="col-lg-5 col-md-5 col-sm-0 col-xs-0" id="similar-movies">
           <div class="row">
             <div
               class="col-md-5"
@@ -57,6 +57,7 @@
               style="margin-right: -30px;margin-left: -5px; height: 180px !important"
             >
               <router-link
+                target="_blank"
                 style="text-decoration: none"
                 :to="{ name: 'MovieDetails', params: { id: suggestion.id } }"
               >
@@ -64,7 +65,7 @@
                   class="rounded mx-auto border border-5 mb-2"
                   :src="suggestion.medium_cover_image"
                   alt=""
-                  style="width: 120px; border: 3px solid !important;"
+                  style="width: 120px;"
                 />
               </router-link>
             </div>
@@ -121,6 +122,24 @@ export default {
 @media (max-width: 1035px) {
   #similar-movies {
     display: none;
+  }
+}
+
+@media (max-width: 567px) {
+  .mt-567 {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1035px) {
+  .col-xs-6 {
+    margin-left: 80px !important;
+  }
+}
+
+@media (max-width: 763px) {
+  .col-xs-6 {
+    margin-left: 0px !important;
   }
 }
 </style>
