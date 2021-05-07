@@ -112,7 +112,7 @@
         </nav>
       </div>
       <!-- Movies list -->
-      <div class="row w-765">
+      <div class="row w-767">
         <div v-for="movie in movies" :key="movie.id" class="col-sm box">
           <router-link
             style="text-decoration: none"
@@ -207,8 +207,8 @@ export default {
   }
 }
 
-@media (max-width: 765px) {
-  .w-765 {
+@media (max-width: 767px) {
+  .w-767 {
     justify-content: center;
     text-align: center;
   }
