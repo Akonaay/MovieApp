@@ -22,7 +22,7 @@
 
         <!-- Filter -->
         <div class="row mt-3">
-          <div class="col-md-3">
+          <div class="col-md-3 mt-2">
             <h6 class="text-left" style="font-weight: 600">Genre</h6>
             <select
               class="form-control form-control-sm"
