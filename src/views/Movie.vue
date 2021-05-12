@@ -57,7 +57,6 @@
               style="margin-right: -30px;margin-left: -5px; height: 180px !important"
             >
               <router-link
-                target="_blank"
                 style="text-decoration: none"
                 :to="{ name: 'MovieDetails', params: { id: suggestion.id } }"
               >
