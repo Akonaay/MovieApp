@@ -21,7 +21,7 @@
         </div>
 
         <!-- Filter -->
-        <div class="row mt-3">
+        <div class="row mt-3 w-800">
           <div class="col-md-3 mt-2">
             <h6 class="text-left" style="font-weight: 600">Genre</h6>
             <select
@@ -217,6 +217,12 @@ export default {
 @media (max-width: 762px) {
   .w-762 {
     width: 33.3%;
+  }
+}
+
+@media (max-width: 800px) {
+  .w-800 {
+    display: none;
   }
 }
 </style>
