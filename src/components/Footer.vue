@@ -121,7 +121,7 @@ export default {
 .w3l-footer-22-main .footer-hny-ul {
   grid-template-columns: 1fr 1fr;
   display: grid;
-  grid-gap: 20px;
+  /* grid-gap: 20px; */
 }
 
 .w3l-footer-22-main .sub-two-right ul li {
